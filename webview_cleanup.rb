@@ -1,6 +1,7 @@
 class Cleaner
   def initialize
     raise "Launch me with `sudo`" unless root?
+    puts "I hope you at least read the script before launching it with `sudo`..."
     @deleted_size = 0
     @dirs_deleted = 0
     run
