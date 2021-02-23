@@ -19,8 +19,9 @@ class Cleaner
 
     puts ''
     size = human_readable(@deleted_size)
+    size_per_dir = human_readable(@deleted_size.to_f / @dirs_deleted)
     puts "Total: #{size}"
-    puts "Average memory per dir: #{size.to_f / @dirs_deleted}"
+    puts "Average memory per dir: #{size_per_dir}"
   end
 
   def dir_list
