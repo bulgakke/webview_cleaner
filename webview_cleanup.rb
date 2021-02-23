@@ -37,14 +37,16 @@ class Cleaner
 
   def human_readable(integer)
     i, units = case integer
-    when 0...1000
+    when 0...1_000
       [integer, 'Bs']
-    when 1000...1_000_000
-      [integer.to_f / 1000, 'kBs']
-    else
+    when 1_000...1_000_000
+      [integer.to_f / 1_000, 'kBs']
+    when 1_000_000...1_000_000_000
       [integer.to_f / 1_000_000, 'MBs']
+    else
+      [integer.to_f / 1_000_000_000, 'GBs']
     end
-    "#{i} #{units}"
+    "#{i.round(3)} #{units}"
   end
 
   def root?
